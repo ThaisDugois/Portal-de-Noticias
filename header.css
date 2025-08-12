@@ -1,0 +1,44 @@
+#primary {
+  padding-block: 20px; /* block - apenas em cima e em baixo pois pego o eixo vertical y */
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+
+  /* nesting css */
+  div:nth-child(2) {
+    margin-inline: auto; /* inline - esquerda e direita pois pego o eixo horizontal x */
+  }
+
+  div:nth-child(3) {
+    justify-self: end; /* alinha o conteúdo ao final do eixo horizontal x */
+  }
+}
+
+#secondary {
+  padding-block: 20px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  div:nth-child(2) {
+    margin-inline: auto;
+  }
+
+  div:nth-child(3) {
+    justify-self: end;
+  }
+}
+
+#secondary {
+  padding-block: 14px; 
+  border: solid 1px var(--stroke-color); 
+  border-inline: none; /* remove a borda lateral */
+  justify-content: space-between; /* espaçamento entre os itens */
+}

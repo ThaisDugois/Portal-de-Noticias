@@ -1,0 +1,119 @@
+section header {
+  border-top: 1px solid #1E293B; /* linha de separação no topo */
+  padding-block: 12px 24px; /* espaçamento interno */
+  font: var(--text-span);
+
+  a {
+    justify-self: end; /* alinha o link à direita */
+    align-items: center;
+    gap: 8px;
+
+    span {
+      background-image: url(../assets/icons/ArrowRight.svg);
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover span { /* muda a imagem do ícone ao passar o mouse */
+      background-image: url(../assets/icons/ArrowRightHover.svg);
+    }
+  }
+}
+
+#featured { /* estilo da seção de destaque */
+  grid-area: featured; /* nome da área do grid */
+  img { 
+    height: 100%;
+    object-fit: cover; /* para que a imagem preencha o espaço sem distorcer */
+  }
+  
+  .card { /* estilo do card */
+    border-radius: 4px;
+    overflow: hidden; /* para que o conteúdo não ultrapasse os limites do card */
+    position: relative; /* para posicionar o pseudo-elemento ::before */
+
+    &::before { /* pseudo-elemento para o overlay */
+      content: ""; /* pseudo-elemento para criar um overlay */
+      position: absolute; /* para posicionar o overlay */
+      inset: 0; /* cobre todo o card */
+      background: linear-gradient( 
+        180deg, /* gradiente linear de cima para baixo */
+        transparent 0%, /* transparente no topo */
+        #020617 100% /* cor do fundo do card */
+      );
+    }
+
+    figcaption { /* legenda do card */
+      position: absolute; /* para posicionar o texto sobre a imagem */
+      bottom: 0; /* alinha ao fundo do card */
+
+      padding: 24px; /* espaçamento interno */
+
+      &:has(.text-lg) { /* se tiver (seja oq for aqui), aplica somente no que tem isso especifico */
+        padding: 12px;
+      }
+
+      h2 {
+        margin-top: 8px; /* espaçamento acima do título */
+      }
+    }
+  }
+}
+
+#weekly {
+  grid-area: weekly; /* nome da área do grid */
+
+   &>div {
+    grid-template-columns: repeat(4, 292px); /* 4 colunas de tamanho igual */
+  }
+
+  img {
+    height: 160px; /* altura fixa para as imagens; */
+  }
+
+  figure {
+    position: relative; /* para posicionar o pseudo-elemento ::before */
+
+    .content-tag {
+      position: absolute; /* para posicionar o tag sobre a imagem */
+      top: 8px; /* distância do topo */
+      left: 8px; /* distância da esquerda */
+    }
+
+    p {
+      margin-top: 8px; /* espaçamento acima do parágrafo */
+      font-weight: 800; /* peso da fonte */
+    }
+  }
+}
+
+#ai {
+  grid-area: ai; /* nome da área do grid */
+  img { 
+    width: 176px; /* largura fixa para o card */
+    aspect-ratio: 1 / 1; /* mantém a proporção quadrada */
+    object-fit: cover; /* para que a imagem preencha o espaço sem distorcer */
+  }  
+
+  h3 {
+    margin-block: 8px 4px; /* espaçamento acima e abaixo do título */
+  }
+}
+
+aside {
+  grid-area: aside; /* nome da área do grid */
+}
+
+#more {
+  margin-top: 32px; /* espaçamento acima da seção */
+
+  h3 {
+    margin-top: 8px; /* espaçamento acima do título */
+  }
+
+  img {
+    width: 72px;
+    aspect-ratio: 1 / 1; /* mantém a proporção quadrada */
+    object-fit: cover; /* para que a imagem preencha o espaço sem distorcer */
+  }
+}
